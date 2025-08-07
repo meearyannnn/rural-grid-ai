@@ -1,11 +1,13 @@
-import { Play, Pause, RotateCcw, Leaf, Zap } from 'lucide-react';
+import { Play, Pause, RotateCcw, Leaf, Zap, Presentation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useEnergySimulation } from '@/hooks/useEnergySimulation';
 import { EnergyStatusCard } from '@/components/EnergyStatusCard';
 import { AIDecisionPanel } from '@/components/AIDecisionPanel';
 import { EnergyCharts } from '@/components/EnergyCharts';
 import { SystemFeatures } from '@/components/SystemFeatures';
+import PresentationSlides from '@/components/PresentationSlides';
 import { Battery, Sun, Wind, Activity } from 'lucide-react';
 
 export const HybridEnergyDashboard = () => {
@@ -90,6 +92,22 @@ export const HybridEnergyDashboard = () => {
               <RotateCcw className="mr-3 h-5 w-5" />
               Reset
             </Button>
+            
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="min-w-[150px] h-12 text-base font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/30"
+                >
+                  <Presentation className="mr-3 h-5 w-5" />
+                  Presentation
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-7xl h-[90vh] p-0">
+                <PresentationSlides />
+              </DialogContent>
+            </Dialog>
             
             <Badge variant="outline" className="px-6 py-3 text-base font-medium bg-white/10 backdrop-blur-sm border-white/20">
               <Activity className="mr-2 h-5 w-5" />
